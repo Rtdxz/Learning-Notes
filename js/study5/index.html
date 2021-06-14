@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css初始化.css">
+    <style>
+        .tab {
+
+            width: 1500px;
+            margin: 100px auto;
+        }
+
+        .tab_list {
+            background-color: #ccc;
+
+        }
+
+        .tab_list ul>li {
+            display: inline-block;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+
+        }
+
+        .current {
+            color: #fff;
+            background-color: pink;
+        }
+
+        .item {
+            display: none;
+        }
+
+        .item.selected {
+            display: block;
+        }
+
+        #pull_down {
+            position: relative;
+        }
+
+        #pull_down>ul {
+            display: none;
+            position: absolute;
+            left: 0;
+
+        }
+
+        #pull_down>ul li {
+            border-top: 1px solid #ddd;
+            background-color: #eee;
+            color: #000;
+        }
+
+        #pull_down>ul li:hover {
+            background-color: #fff;
+        }
+
+        img {
+            display: none;
+            position: absolute;
+            height: 60px;
+            width: 60px;
+        }
+
+
+        .content {
+            display: none;
+            position: absolute;
+            top: -40px;
+            padding: 5px 2px;
+            height: 20px;
+
+            border: 1px solid #ccc;
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, .1);
+
+        }
+
+        .search {
+            position: relative;
+            width: 178px;
+            margin: 100px 0;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+            /* background-color: #000; */
+        }
+    </style>
+</head>
+
+<body>
+    <img src="1.png" alt="">
+    <div class="tab">
+        <div class="tab_list" id="tab_list">
+            <ul>
+                <li class="current">first</li>
+                <li>second</li>
+                <li>third</li>
+                <li>fourth</li>
+                <li>fifth</li>
+                <li id="pull_down">six
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item selected">第一页内容</div>
+            <div class="item">第二页内容</div>
+            <div class="item">第三页内容</div>
+            <div class="item">第四页内容</div>
+            <div class="item">第五页内容</div>
+        </div>
+        <div class="search">
+            <div class="content">123</div><input type="text">
+        </div>
+
+        <div class="send"><input type="text"> <button>发送</button></div>
+    </div>
+
+
+    <script src="js/addLoadEvent.js"></script>
+    <script src="js/tab.js"></script>
+</body>
+
+</html>

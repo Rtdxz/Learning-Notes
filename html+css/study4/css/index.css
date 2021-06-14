@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding:0;
+    }
+    body {
+        background-color: #ccc;
+        perspective: 500px;
+    }
+/* div {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+     /* 调用动画 */
+     /* animation-name:move; */
+     /* 动画持续时间 */
+     /* animation-duration:2s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+} */ 
+.bear {
+    position: absolute;
+    top: 400px;
+    width: 200px;
+    height: 100px;
+    background: url(../images/bear.png) no-repeat;
+    animation: bear 0.1s steps(8) infinite,move 1s linear infinite;
+}
+.bg2:hover {
+    transform:rotateX(360deg);
+}
+.bg1 {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    height: 336px;
+    background: url(../images/bg1.png) no-repeat;
+    animation: bg 10s linear infinite forwards ;}
+.bg2 {
+    position: absolute;
+    width: 100%;
+    height: 569px;
+    background: url(../images/bg2.png) no-repeat;
+    transition: all 1s;
+}
+@keyframes move {
+    0% {
+        left: 0;
+        
+    }
+    100% {left: 50%;
+    transform: translate(-50%,0);
+   
+        
+}
+}
+@keyframes bear {
+    0% {
+        background-position: 0 0;
+    }
+    100% {background-position: -1600px 0;}
+}
+@keyframes bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {background-position: -2000px 0;}
+}

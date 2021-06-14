@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        body {
+            margin: 1rem 10%;
+            background-color: #ccc;
+        }
+
+        div {
+            margin: 0 auto;
+            width: 1000px;
+            height: 700px;
+        }
+
+        li {
+            float: left;
+            padding: 1rem;
+        }
+
+        li img {
+            width: 200px;
+            height: 100px;
+        }
+
+
+
+        p {
+            margin: 1rem 0;
+        }
+
+        #placeholder {
+            margin: 1rem 0;
+            display: block;
+            width: 800px;
+            height: 400px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Snapshots</h1>
+
+        <img src="images/1.jpg" alt="my image gallery" id="placeholder">
+        <p id="description">Choose an image</p>
+        <ul class="clearfix" id="imagegallery">
+            <li><a href="images/second_top1.jpg" title="1"><img src="images/second_top1.jpg" alt=""></a></li>
+            <li><a href="images/second_top2.jpg" title="2"><img src="images/second_top2.jpg" alt=""></a></li>
+            <li><a href="images/second_top3.jpg" title="3"><img src="images/second_top3.jpg" alt=""></a></li>
+            <li><a href="images/second_top4.jpg" title="4"><img src="images/second_top4.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="js/showPic.js"></script>
+
+</body>
+
+</html>
