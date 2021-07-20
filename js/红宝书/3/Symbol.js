@@ -53,4 +53,7 @@ Object.defineProperty(o, 'x', {
 console.log(o)
 
 
-
+//ES6中，使用instanceof操作符会用到Symbol.hasInstance函数来确定关系
+function Foo() { }
+let f = new Foo();
+console.log(Foo[Symbol.hasInstance](f));//Symbol.hasInstance是内置符号
