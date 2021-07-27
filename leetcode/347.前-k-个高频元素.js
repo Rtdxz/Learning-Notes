@@ -108,18 +108,26 @@ var topKFrequent = function (nums, k) {
   let array = Array.from(map);
   console.log(array)
   for (let i = 0; i < array.length; i++) {
+    //堆未到达对应大小时，一直推入
     if (i < k) {
       heap.push(array[i][0])
+
+      //当堆到达对应k大小时再构建一个小顶堆
       if (heap.length == k) {
 
         buildHeap(heap, map, k)
 
       }
     }
+    //对之后的元素进行判断，如果对应的频率比堆顶大，则进行替换掉
+    //如果频率比堆顶小则不处理
+    //最后剩下的这个k大的小顶堆中就是前k高频的数
     else if (array[i][1] > map.get(heap[0])) {
+      //替换
       heap[0] = array[i][0];
+      //从堆顶再次进行堆化，保证堆顶为最小元素
       heapify(heap, map, k, 0)
-      // console.log(heap)
+      //不断剔除最小元素最后剩下的就是k大的元素
     }
   }
 
