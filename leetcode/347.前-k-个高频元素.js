@@ -67,12 +67,14 @@ var topKFrequent = function (nums, k) {
      // console.log(heap)
  
    }
-   return res; */
+   return res; 
+   ----------------------------------------------------------------------------------------
+   */
 
 
 
   //小顶堆做法
-  let heapify = function (heap, map, k, i) {
+  /* let heapify = function (heap, map, k, i) {
     while (true) {
       let minIndex = i;
       if (2 * i + 1 < k && map.get(heap[2 * i + 1]) < map.get(heap[minIndex])) {
@@ -114,9 +116,7 @@ var topKFrequent = function (nums, k) {
 
       //当堆到达对应k大小时再构建一个小顶堆
       if (heap.length == k) {
-
         buildHeap(heap, map, k)
-
       }
     }
     //对之后的元素进行判断，如果对应的频率比堆顶大，则进行替换掉
@@ -130,8 +130,50 @@ var topKFrequent = function (nums, k) {
       //不断剔除最小元素最后剩下的就是k大的元素
     }
   }
+  return heap.reverse(); 
+  ----------------------------------------------------------------------------------------
+  */
 
-  return heap.reverse();
+
+  //桶排序
+  //利用映射关系做
+  let bucketSort = function (map, k) {
+    let res = [];
+    //一个二维数组，下标对应的是频率，然后里面的元素数组对应的是该频率下的key
+    let array = [];
+    map.forEach((value, key) => {
+      if (!array[value]) {
+        array[value] = [key]
+      }
+      else {
+        array[value].push(key);
+      }
+    })
+    //从高到低频率遍历即可
+    for (let i = array.length; i >= 0 && res.length < k; i--) {
+      if (array[i]) {
+        res.push(...array[i])
+      }
+    }
+    return res;
+  }
+
+  let map = new Map(), arr = [...new Set(nums)]
+  nums.map((num) => {
+    if (map.has(num)) map.set(num, map.get(num) + 1)
+    else map.set(num, 1)
+  })
+
+  // 如果元素数量小于等于 k
+  if (map.size <= k) {
+    return [...map.keys()]
+  }
+
+  return bucketSort(map, k);
+
+
+
+
 
 };
 // @lc code=end
